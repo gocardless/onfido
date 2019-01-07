@@ -30,7 +30,7 @@ class FakeOnfidoAPI < Sinatra::Base
     json_response(201, 'check.json')
   end
 
-  get '/v2/applicants/:id/checks/:id' do
+  get '/v2/applicants/:applicant_id/checks/:check_id' do
     if params["expand"] == "reports"
       json_response(200, "check_with_expanded_reports.json")
     else
@@ -52,7 +52,7 @@ class FakeOnfidoAPI < Sinatra::Base
     json_response(200, 'reports.json')
   end
 
-  get '/v2/checks/:id/reports/:id' do
+  get '/v2/checks/:check_id/reports/:report_id' do
     json_response(200, 'report.json')
   end
 

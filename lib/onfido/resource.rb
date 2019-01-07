@@ -111,6 +111,10 @@ module Onfido
         when RestClient::RequestTimeout
           "Could not connect to Onfido (#{url}). #{connection_message}"
 
+        when RestClient::BadGateway
+          "The connection returned a 502 (Bad Gateway) error (#{url})." \
+          "#{connection_message}"
+
         when RestClient::ServerBrokeConnection
           "The connection to the server (#{url}) broke before the " \
           "request completed. #{connection_message}"
